@@ -25,6 +25,9 @@ export default function App() {
     apiUrl: import.meta.env.VITE_API_URL || "http://localhost:8123",
     assistantId: "agent",
     messagesKey: "messages",
+    headers: {
+      "x-api-key": import.meta.env.VITE_LANGSMITH_API_KEY || "",
+    },
     onUpdateEvent: (event: any) => {
       let processedEvent: ProcessedEvent | null = null;
       if (event.generate_query) {
